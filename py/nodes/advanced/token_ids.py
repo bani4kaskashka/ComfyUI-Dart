@@ -47,6 +47,6 @@ class DanbooruTagsTransformerRemoveTagToken(BaseNode):
     FUNCTION = "remove"
 
     def remove(self, tokenizer: DartTokenizer, token_ids, remove_tags):
-        remove_tag_token_ids = tokenizer.tokenizer.encode_plus(remove_tags).input_ids
+        remove_tag_token_ids = tokenizer.tokenizer.encode(remove_tags)
         token_ids = [token for token in token_ids if token not in remove_tag_token_ids]
         return (token_ids,)

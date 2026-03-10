@@ -18,7 +18,7 @@ class DartModel:
         self.set_seed(seed)
 
         inputs = tokenizer.tokenizer(prompt, return_tensors="pt").input_ids
-        bad_words_ids = tokenizer.tokenizer.encode_plus(ban_tags).input_ids
+        bad_words_ids = tokenizer.tokenizer.encode(ban_tags)
         if len(bad_words_ids) == 0:
             bad_words_ids = None
         else:

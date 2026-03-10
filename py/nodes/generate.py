@@ -69,7 +69,7 @@ class DanbooruTagsTransformerGenerate(BaseNode):
         token_ids = outputs[0]
 
         # remove tags
-        remove_tag_token_ids = tokenizer.tokenizer.encode_plus(remove_tags).input_ids
+        remove_tag_token_ids = tokenizer.tokenizer.encode(remove_tags)
         token_ids = [token for token in token_ids if token not in remove_tag_token_ids]
 
         if animagine_order:
